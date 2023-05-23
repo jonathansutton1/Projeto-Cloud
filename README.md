@@ -21,7 +21,7 @@ Projeto final da disciplina de Cloud - Insper 2023.1
 
  ```aws cognito-idp admin-create-user --region us-east-1 --user-pool-id us-east-1_iQH4EJFH2 --username usuario@usuario.com --user-attributes Name=email,Value=seu@email.com Name=email_verified,Value=true```
  
- Perceba que em "Value" é preciso por o seu email, pois a senha será enviada lá! em "username" precisa ser no formato de email, mas você poderá por o que quiser.
+ Perceba que em "Value" é preciso por o seu email, pois a senha será enviada lá! Em "username" você poderá por o que quiser.
  
  - Com isso, acessar o seu email, onde será enviado seu usuário de login e senha.
 
