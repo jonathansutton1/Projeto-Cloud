@@ -31,7 +31,10 @@ Projeto final da disciplina de Cloud - Insper 2023.1
 - Copie também o seu email que você cadastrou no SES.
 - Crie um arquivo chamado ```lambda_function_payload.zip``` contendo esse arquivo Python e substitua ele pelo zip existente dentro da pasta 'terraform'
 - Dê mais uma vez um  ```terraform plan``` e ```terraform apply```
-- Depois disso, você poderá criar o seu usuário para entrar na aplicação a partir do comando abaixo:
+- Depois disso, você terá 2 maneiras de criar seu usuário para entrar na aplicação:
+
+### Opção 1
+- A partir do comando abaixo é possível criar um usuário:
 
  ```aws cognito-idp admin-create-user --region us-east-1 --user-pool-id us-east-1_seuID --username usuario123 --user-attributes Name=email,Value=seu@email.com Name=email_verified,Value=true```
  
@@ -47,6 +50,18 @@ Projeto final da disciplina de Cloud - Insper 2023.1
 - A aplicação irá logar localmente no servidor local (http://127.0.0.1:5000)
 - Acesse a página: http://127.0.0.1:5000/login (sim, precisa ter o /login)
 - Para finalizar, use os valores enviados no email para logar. Caso dê certo, você será redirecionado para uma página que diz que você conseguiu entrar. Caso o usuário ou a senha estejma errados, volte para a página e logue de novo com o usuário ou a senha certa.
+
+### Opção 2 
+- Na página principal do projeto, dê o comando ```python app.py```.
+- A aplicação irá logar localmente no servidor local (http://127.0.0.1:5000)
+- Insira o seu email no campo de escrever, e clique em "Inscrever".
+
+ ***OBS***: O email escrito deve estar cadastrado no [SES](https://us-east-1.console.aws.amazon.com/ses/home?region=us-east-1#/account).
+ 
+- Verifique seu email. Você receberá seu usuário e senha por lá.
+- Acesse a página: http://127.0.0.1:5000/login
+- Utilize o usuário e senha enviados no email para entrar na aplicação.
+
 
 
 
