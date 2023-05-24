@@ -1,10 +1,34 @@
 # Projeto Cloud
 Projeto final da disciplina de Cloud - Insper 2023.1
 
+## Objetivo do projeto
+Desenvolver um código em terraform que consiga fazer a autenticação de usuários para entrar em uma aplicação web. Essa autenticação deve ser feita de maneira prática e segura.
+
+## Estrutura do projeto
+O projeto está organizado da seguinte forma:
+
+**Pasta "terraform"**: Esta pasta contém o arquivo ```main.tf``` e o arquivo ```lambda_function_payload.zip```. O arquivo main.tf é responsável por instanciar os recursos necessários na AWS. O arquivo zip é necessário para instanciar a função lambda.
+
+**Pasta "lambda":** Essa pasta contém o arquivo ```lambda_function.py```, que será zipado após a instância ser feita, e irá substituir o zip da pasta "terraform" (mais detalhes na hora de executar o projeto). Esse arquivo será preenchido com o ID do userpool criado pelo cognito e o email cadastrado, e sua função é enviar um email com o login e senha do usuário.
+
+**Arquivo ```app.py```:** Este arquivo contém a aplicação web que roda localmente, desenvolvida em Flask. Ele possui uma página para enviar o email com o usuário e outra página para fazer o login para entrar na aplicação.
+
+## Recursos utilizados da AWS
+- **AWS IAM:** O AWS Identity and Access Management (IAM) é um serviço que permite gerenciar o acesso seguro aos recursos da AWS. Ele controla as permissões e políticas de segurança, permitindo que você defina e gerencie as identidades que podem acessar seus recursos.
+
+- **AWS Cognito:** O Amazon Cognito é um serviço que permite adicionar recursos de autenticação, autorização e gerenciamento de usuários em uma aplicação. Fornece um fluxo de registro e login seguro, que nesse projeto é enviado via email.
+
+- **AWS API Gateway:** O Amazon API Gateway é um serviço totalmente gerenciado que permite criar, publicar, proteger e gerenciar APIs para seus aplicativos. Ele atua como um ponto de entrada para suas APIs, oferecendo recursos como autenticação, controle de acesso, monitoramento e transformação de dados.
+
+- **AWS Lambda:** O AWS Lambda é um serviço de computação serverless que permite executar código sem precisar provisionar ou gerenciar servidores. Ele executa o código em resposta a eventos, como chamadas de API, uploads de arquivos ou alterações em um banco de dados. O AWS Lambda escala automaticamente a capacidade de acordo com a demanda e você paga apenas pelo tempo de execução real do código.
+
+### Como o Lambda foi utilizado nesse projeto
+O arquivo ```.py``` dentro da pasta zipada é um script que envia emails com o usuário e senha da pessoa que fazer a requisição a partir da aplicação web, e o lambda executa esse arquivo serverless.
 
 ## Pré-requisitos para rodar o projeto
 - Ter o [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) instalado na máquina.
 - Ter o [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) instalado e configurado na máquina.
+- Ter o [Python](https://www.python.org/) instalado na máquina
 
 ## Roteiro de instalação e funcionamento do projeto
 
