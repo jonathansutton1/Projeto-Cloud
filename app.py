@@ -45,12 +45,13 @@ def login():
             )
 
             if response.get('ChallengeName'):
-                # If the user needs a new password, they'll be redirected to a different screen
                 if response.get('ChallengeName') == 'NEW_PASSWORD_REQUIRED':
                    return 'Você entrou no aplicativo!'
             else:
                 return 'Você entrou no aplicativo!'
         except client.exceptions.NotAuthorizedException:
+            return 'Usuário ou senha inválidos.'
+        except client.exceptions.UserNotFoundException:
             return 'Usuário ou senha inválidos.'
 
     return '''
