@@ -7,7 +7,7 @@ Desenvolver um código em terraform que consiga fazer a autenticação de usuár
 ## Estrutura do projeto
 O projeto está organizado da seguinte forma:
 
-**Pasta "terraform"**: Esta pasta contém o arquivo ```main.tf``` e o arquivo ```lambda_function_payload.zip```. O arquivo main.tf é responsável por instanciar os recursos necessários na AWS. O arquivo zip é necessário para instanciar a função lambda.
+**Pasta "terraform"**: Esta pasta contém o arquivo ```main.tf``` e o arquivo ```lambda_function_payload.zip```. O arquivo main.tf é responsável por instanciar os recursos necessários na AWS (descrição abaixo). O arquivo zip contém o código python que a função lambda vai executar.
 
 **Pasta "lambda":** Essa pasta contém o arquivo ```lambda_function.py```, que será zipado após a instância ser feita, e irá substituir o zip da pasta "terraform" (mais detalhes na hora de executar o projeto). Esse arquivo será preenchido com o ID do userpool criado pelo cognito e o email cadastrado, e sua função é enviar um email com o login e senha do usuário.
 
@@ -24,6 +24,9 @@ O projeto está organizado da seguinte forma:
 
 ### Como o Lambda foi utilizado nesse projeto
 O arquivo ```.py``` dentro da pasta zipada é um script que envia emails com o usuário e senha da pessoa que fazer a requisição a partir da aplicação web, e o lambda executa esse arquivo serverless.
+
+## Topologia do projeto 
+![image](https://github.com/jonathansutton1/Projeto-Cloud/assets/62657975/f218dec1-af09-41b0-b7c8-2508c460aebd)
 
 ## Pré-requisitos para rodar o projeto
 - Ter o [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) instalado na máquina.
