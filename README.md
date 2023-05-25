@@ -44,6 +44,7 @@ O arquivo ```.py``` dentro da pasta zipada é um script que envia emails com o u
 ```aws s3api create-bucket --bucket nome_do_bucket --region us-east-1```
 - Em "nome_do_bucket", trocar para o nome que você deseja por no bucket. Não se esqueça de mudar o nome também no arquivo ```main.tf``` (linha 7).
 
+***OBS:*** Só pode haver 1 nome do bucket em toda a AWS. Tente escolher um nome específico para fins de teste.
 
 - No Command Prompt, dar os 3 comandos em seguida para subir o projeto na AWS:
 
