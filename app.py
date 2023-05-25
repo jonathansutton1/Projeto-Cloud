@@ -18,7 +18,7 @@ def index():
             InvocationType='Event',
             Payload=json.dumps({'email': email})
         )
-        return 'Um e-mail de confirmação foi enviado para {}.'.format(email)
+        return 'Um e-mail de confirmação foi enviado para {}'.format(email)
 
     return '''
         <form method="POST">
@@ -53,6 +53,7 @@ def login():
             return 'Usuário ou senha inválidos.'
         except client.exceptions.UserNotFoundException:
             return 'Usuário ou senha inválidos.'
+        
 
     return '''
         <form method="POST">

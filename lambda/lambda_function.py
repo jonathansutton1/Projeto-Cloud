@@ -3,7 +3,7 @@ import os
 import string
 import random
 
-def generate_temp_password(size=8, chars=string.ascii_letters + string.digits):
+def generate_temp_password(size=8, chars=string.ascii_letters + string.digits + string.punctuation):
     return ''.join(random.choice(chars) for _ in range(size))
 
 def lambda_handler(event, context):
@@ -15,7 +15,7 @@ def lambda_handler(event, context):
     
     try:
         response = cognito.admin_create_user(
-            UserPoolId='',  # Escreva o ID do seu User Pool aqui
+            UserPoolId='us-east-1_JR64gnkoD',  # Escreva o ID do seu User Pool aqui
             Username=email,
             TemporaryPassword=temp_password,
             UserAttributes=[
@@ -28,7 +28,7 @@ def lambda_handler(event, context):
         )
         
         ses.send_email(
-            Source='',    #Escreva seu email aqui
+            Source='jonathansutton56@gmail.com',    #Escreva seu email verificado aqui
             Destination={
                 'ToAddresses': [
                     email,
@@ -41,7 +41,7 @@ def lambda_handler(event, context):
                 },
                 'Body': {
                     'Text': {
-                        'Data': 'Confirme sua identidade clicando no link abaixo. Seu usuário é: {} e sua senha temporária é: {}'.format(email, temp_password),
+                        'Data': 'Seu usuário é: {} e sua senha temporária é: {}'.format(email, temp_password),
                         'Charset': 'UTF-8'
                     }
                 }
@@ -58,3 +58,4 @@ def lambda_handler(event, context):
             'statusCode': 500,
             'body': 'Erro ao criar usuário'
         }
+    
