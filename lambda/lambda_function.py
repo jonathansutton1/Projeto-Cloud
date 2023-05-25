@@ -15,7 +15,7 @@ def lambda_handler(event, context):
     
     try:
         response = cognito.admin_create_user(
-            UserPoolId='us-east-1_JR64gnkoD',  # Escreva o ID do seu User Pool aqui
+            UserPoolId='',  # Escreva o ID do seu User Pool aqui
             Username=email,
             TemporaryPassword=temp_password,
             UserAttributes=[
@@ -28,7 +28,7 @@ def lambda_handler(event, context):
         )
         
         ses.send_email(
-            Source='jonathansutton56@gmail.com',    #Escreva seu email verificado aqui
+            Source='',    #Escreva seu email verificado aqui
             Destination={
                 'ToAddresses': [
                     email,
